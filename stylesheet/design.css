@@ -1,0 +1,27 @@
+body {
+    background: linear-gradient(270deg, #ee53fa, #ffbe44, #4fb825, #17cdf2, #1794f2);
+    background-size: 1000% 100%;
+    animation: background-animation 50s ease infinite;
+}
+
+@keyframes background-animation {
+    0% {background-position: 0 50%}
+    50% {background-position: 100% 50%}
+    100% {background-position: 0 50%}
+}
+
+#bar {
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    width: 40%;
+    height: 40%;
+    -webkit-transition: 0.1s ease all;
+}
+
+.p {
+    background-color: blue;
+    height: 100%;
+    width: 10%;
+    float: left;
+}

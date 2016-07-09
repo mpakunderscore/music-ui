@@ -1,28 +1,31 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "name": "music",
+  "version": "0.0.0",
+  "description": "",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron/electron-quick-start.git"
+    "url": "git+https:// .git"
   },
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial"
+    "music"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "",
+  "license": "",
   "bugs": {
-    "url": "https://github.com/electron/electron-quick-start/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/electron/electron-quick-start#readme",
+  "homepage": "",
   "devDependencies": {
+    "electron-packager": "^7.1.0",
     "electron-prebuilt": "^1.2.0"
+  },
+  "dependencies": {
+    "electron-open-link-in-browser": "^1.0.2",
+    "jsmediatags": "^3.2.1"
   }
 }

@@ -1,0 +1,76 @@
+.circle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+
+    width: 150px;
+    height: 150px;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+    /*left: -75px;*/
+
+    border-radius: 50%;
+
+    /*-webkit-animation: pulsate 0.9s ease-out;*/
+    /*-webkit-animation-iteration-count: infinite;*/
+
+    background-image: linear-gradient(260deg, rgba(255, 255, 255, 0.6) 10%, transparent 50%);
+
+    cursor: pointer;
+    z-index: 2;
+}
+
+.circle:hover {
+    /*-webkit-animation-iteration-count: unset;*/
+}
+
+.big {
+    width: 250px;
+    height: 250px;
+    top: calc(50% - 125px);
+    left: calc(50% - 125px);
+    /*left: -125px;*/
+
+
+
+    /*-webkit-animation: pulsate-back 0.9s ease-out;*/
+    /*-webkit-animation-iteration-count: infinite;*/
+}
+
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(1.0, 1.0);}
+    50% {-webkit-transform: scale(1.05, 1.05);}
+    100% {-webkit-transform: scale(1.0, 1.0);}
+}
+
+@-webkit-keyframes pulsate-back {
+    0% {-webkit-transform: scale(1.05, 1.05);}
+    50% {-webkit-transform: scale(1.0, 1.0);}
+    100% {-webkit-transform: scale(1.05, 1.05);}
+}
+
+#sector {
+    overflow: hidden;
+    position: absolute;
+    /* make sure top & left values are - the width of the border */
+    /* the bottom right corner is the centre of the parent circle */
+    top: -1px;
+    right: 50%;
+    bottom: 50%;
+    left: -1px;
+    /* the transform origin is the bottom right corner */
+    transform-origin: 100% 100%;
+    /* rotate by any angle */
+    /* the skew angle is 90deg - the angle you want for the arc */
+    transform: rotate(90deg);
+}
+
+#sector:before {
+    box-sizing: border-box;
+    display: block;
+    border: solid 2px white;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    /*transform: skewX(-30deg);*/
+    content: '';
+}
