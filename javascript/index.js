@@ -1,5 +1,5 @@
 var jsmediatags = require("jsmediatags")
-var electronOpenLinkInBrowser = require("electron-open-link-in-browser");
+// var electronOpenLinkInBrowser = require("electron-open-link-in-browser");
 
 var musicFile = 'mp3/' + 'Fabrizio Paterlini - L\'airone'  + '.mp3';
 var audio = new Audio();
@@ -42,38 +42,30 @@ renderFrame();
 function music() {
 
     if (audio.paused) {
-        audio.play();
-        // $( ".tag" ).css( "display", "none" );
+
+        getTracks();
+        // audio.play();
+
     } else {
         audio.pause();
-        // $( ".tag" ).css( "display", "block" );
     }
 }
 
 function circle() {
-    console.log('circle')
+
+    // console.log('circle')
+
+    console.log(selectedTags);
+    
     music();
 }
 
-function drop() {
-    console.log('drop')
-}
-
-function select() {
-    console.log('select')
-}
-
-$( function() {
-    $('.tag').click( function() {
-        $(this).css('color', 'white')
-    } );
-} );
+// function drop() {
+//     console.log('drop')
+// }
 
 jsmediatags.read(musicFile, {
     onSuccess: function(tag) {
-        // console.log(tag);
-        // var text = tag.tags.artist + ' - ' + tag.tags.title;
-        // console.log(text);
         $('#artist').text(tag.tags.artist)
         // $('#artist').attr("href", "http://www.last.fm/music/" + tag.tags.artist)
         $('#title').text(tag.tags.title)

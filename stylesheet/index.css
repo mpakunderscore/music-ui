@@ -3,31 +3,16 @@ body {
     font-weight: 300;
     margin: 0;
 
-    /*for drug*/
     height: 500px;
-    /*position: fixed;*/
-    /*top: 0;*/
-    /*bottom: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
     -webkit-app-region: drag;
 }
 
 a {
-    -webkit-app-region: no-drag;
-    cursor: pointer;
-}
-
-/*#drop {*/
-    /*position: absolute;*/
-    /*bottom: 15px;*/
-    /*left: 20px;*/
-    /*color: rgba(255, 255, 255, 0.6);*/
-/*}*/
-
-a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.8);
+
+    -webkit-app-region: no-drag;
+    cursor: pointer;
 }
 
 a:hover {
@@ -55,6 +40,13 @@ a:hover {
 
     cursor: pointer;
 
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
     /*display: none;*/
 }
 
@@ -62,36 +54,6 @@ a:hover {
     color: rgba(255, 255, 255, 0.9);
 }
 
-#tag1 {
-    transform: rotate(-30deg);
+.tag.select {
+    color: white;
 }
-
-#tag2 {
-    transform: rotate(-20deg);
-}
-
-#tag3 {
-    transform: rotate(-10deg);
-}
-
-#tag4 {
-    transform: rotate(0deg);
-}
-
-#tag5 {
-    transform: rotate(10deg);
-}
-
-#tag6 {
-    transform: rotate(20deg);
-}
-
-/*.tag:hover~.tag {*/
-    /*display: block;*/
-/*}*/
-
-/*.circle:hover~.tag {*/
-    /*display: block;*/
-/*}*/
-
-
