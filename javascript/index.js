@@ -23,6 +23,8 @@ function renderFrame() {
     var first = 3;
     var second = 2;
 
+    // console.log(frequencyData);
+
     $('#circle').css("transform", "scale(" + (1 + 0.7*frequencyData[first]/max) + ", " + (1 + 0.7*frequencyData[first]/max) + ")")
     $('#circle-big').css("transform", "scale(" + (1 + 0.7*frequencyData[second]/max) + ", " + (1 + 0.7*frequencyData[second]/max) + ")")
 
@@ -43,7 +45,9 @@ function music() {
 
     if (audio.paused) {
 
+        playlist = [];
         getTracks();
+        // console.log('play')
         // audio.play();
 
     } else {
@@ -55,7 +59,7 @@ function circle() {
 
     // console.log('circle')
 
-    console.log(selectedTags);
+    // console.log(selectedTags);
     
     music();
 }
@@ -73,5 +77,35 @@ jsmediatags.read(musicFile, {
     },
     onError: function(error) {
         console.log(':(', error.type, error.info);
+    }
+});
+
+var position = 0;
+var positionIndex = 0;
+
+var positionInterval = 20;
+
+document.addEventListener('mousewheel', function(e) {
+
+    // console.log(e.deltaY)
+
+    if (e.deltaY > 20)
+        e.deltaY = 20;
+
+    if (e.deltaY < -20)
+        e.deltaY = -20;
+
+    position += e.deltaY;
+
+    if (Math.floor(position / positionInterval) > positionIndex  && tagIndex + 5 !== tags.length) {
+        positionIndex = Math.floor(position / positionInterval);
+        // console.log('next');
+        next();
+    }
+
+    if (Math.floor(position / positionInterval) < positionIndex && tagIndex !== 0) {
+        positionIndex = Math.floor(position / positionInterval);
+        // console.log('back');
+        back();
     }
 });

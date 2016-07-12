@@ -17,10 +17,18 @@
 
     cursor: pointer;
     z-index: 3;
+
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .circle:hover {
-    /*-webkit-animation-iteration-count: unset;*/
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.circle:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .big {
@@ -32,8 +40,12 @@
 
     z-index: 2;
 
-    /*-webkit-animation: pulsate-back 0.9s ease-out;*/
-    /*-webkit-animation-iteration-count: infinite;*/
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.big:hover {
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.6);
 }
 
 @-webkit-keyframes pulsate {

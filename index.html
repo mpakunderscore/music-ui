@@ -16,19 +16,19 @@
         <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
     </head>
 
-    <body>
+    <body onscroll="myFunction()">
 
-        <div id="circle" class="circle make-it-slow" onclick="circle()">
-            <!--<div id="sector"></div>-->
+        <div id="circle-big" class="circle big">
+            <div id="circle" class="circle small" onclick="circle()">
+                <!--<div id="sector"></div>-->
+            </div>
         </div>
 
-        <div id="circle-big" class="circle big make-it-slow" onclick="circle()"></div>
+        <div id="tags"></div>
 
         <div id="track">
             <a id="artist"></a> - <a id="title"></a>
         </div>
-
-        <div id="tags"></div>
 
     </body>
 

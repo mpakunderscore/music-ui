@@ -43,7 +43,7 @@ if (localStorage.getItem(getTopTags_) === null) {
 
 } else {
 
-    console.log('getTopTags_ from localStorage')
+    // console.log('getTopTags_ from localStorage')
     tags = JSON.parse(localStorage.getItem(getTopTags_))
 
     fillTags();
@@ -92,14 +92,35 @@ function getTagTracks(tagTitle) {
         })
 
     } else {
-        console.log('getTopTracks_ ' + tag + ' from localStorage')
+
+        // console.log('getTopTracks_ ' + tag + ' from localStorage')
         tagTracks[tagTitle] = JSON.parse(localStorage.getItem(getTopTracks_ + tag))
+
+        for (var i = 0; i < tagTracks[tagTitle].length; i++) {
+
+            var artist = tagTracks[tagTitle][i].artist;
+            var title = tagTracks[tagTitle][i].title;
+
+            // tagTracks[tagTitle].push({artist: artist, title: title})
+
+
+            // console.log(artist + ' ' + title);
+
+            // artist = 'artist=' + artist + '&';
+            // title = 'track=' + title +'&';
+
+
+            getTags(artist, title);
+        }
 
         // console.log(tagTracks[tagTitle])
     }
 }
 
 function getTags(artist, track) {
+
+    var artistTitle = artist;
+    var trackTrack = track;
 
     // console.log('getTags: ' + artist + ' - ' + track)
 
@@ -116,6 +137,11 @@ function getTags(artist, track) {
 
             if (!error && response.statusCode == 200) {
 
+                if (JSON.parse(body).toptags === undefined) {
+                    localStorage.setItem(getTrackTopTags_ + artist + track, JSON.stringify(trackTags));
+                    return;
+                }
+
                 var tagsArray = JSON.parse(body).toptags.tag; // Show the HTML for the Google homepage.
 
                 for (var i = 0; i < tagsArray.length; i++) {
@@ -129,10 +155,10 @@ function getTags(artist, track) {
                     trackTags.push({title: title, count: count})
                 }
 
-                console.log('getTrackTopTags_ ' + artist + ' - ' + track + ' from web')
+                // console.log('getTrackTopTags_ ' + artist + ' - ' + track + ' from web')
                 localStorage.setItem(getTrackTopTags_ + artist + track, JSON.stringify(trackTags));
 
-                return trackTags;
+                checkTrack(artistTitle, trackTrack, trackTags);
 
             } else {
                 console.log(response.statusCode)
@@ -141,7 +167,43 @@ function getTags(artist, track) {
 
     } else {
 
-        // JSON.parse(localStorage.getItem(getTrackTopTags_ + artist + track))
+        var trackTags = JSON.parse(localStorage.getItem(getTrackTopTags_ + artist + track))
+
+        checkTrack(artistTitle, trackTrack, trackTags);
+    }
+}
+
+function checkTrack(artistTitle, trackTitle, trackTags) {
+    
+    var tagCount = 0;
+    var playlistTrackTags = []
+
+    for (var i = 0; i < trackTags.length; i++) {
+
+        var tag = trackTags[i];
+
+        var title = tag.title.charAt(0).toUpperCase() + tag.title.slice(1);
+        var count = tag.count;
+
+        if (selectedTags.contains(title)) {
+            // console.log(title + ' ' + count);
+
+            playlistTrackTags.push({title: title, count: count})
+            tagCount += 1;
+        }
+    }
+
+    if (tagCount === selectedTags.length && !playlist.contains(track)) {
+
+        var track = {artist: artistTitle, title: trackTitle};
+
+        playlist.push(track);
+
+        console.log(track.artist + ' - ' + track.title);
+
+        for (var i = 0; i < playlistTrackTags.length; i++) {
+            console.log('%c' + playlistTrackTags[i].title + ': ' + playlistTrackTags[i].count, 'color: blue');
+        }
     }
 }
 
