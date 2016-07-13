@@ -51,6 +51,8 @@ if (localStorage.getItem(getTopTags_) === null) {
 
 function getTracks() {
 
+    $('#playlist').text('');
+
     for (var i = 0; i < selectedTags.length; i++) {
 
         getTagTracks(selectedTags[i])
@@ -193,13 +195,15 @@ function checkTrack(artistTitle, trackTitle, trackTags) {
         }
     }
 
-    if (tagCount === selectedTags.length && !playlist.contains(track)) {
+    var track = {artist: artistTitle, title: trackTitle};
 
-        var track = {artist: artistTitle, title: trackTitle};
+    if (tagCount === selectedTags.length && !playlist.contains(track)) {
 
         playlist.push(track);
 
         console.log(track.artist + ' - ' + track.title);
+
+        $('#playlist').prepend('<li>' + track.artist + ' - ' + track.title + '</li>'); //$("li").text()
 
         for (var i = 0; i < playlistTrackTags.length; i++) {
             console.log('%c' + playlistTrackTags[i].title + ': ' + playlistTrackTags[i].count, 'color: blue');

@@ -97,6 +97,13 @@ document.addEventListener('mousewheel', function(e) {
 
     position += e.deltaY;
 
+    if (position < 0) {
+        position = 0;
+        return;
+    }
+
+    // console.log(position)
+
     if (Math.floor(position / positionInterval) > positionIndex  && tagIndex + 5 !== tags.length) {
         positionIndex = Math.floor(position / positionInterval);
         // console.log('next');
@@ -107,5 +114,27 @@ document.addEventListener('mousewheel', function(e) {
         positionIndex = Math.floor(position / positionInterval);
         // console.log('back');
         back();
+    }
+});
+
+$(document).keydown(function(event){
+    var key = event.which;
+    switch(key) {
+        case 37:
+            // Key left.
+            break;
+        case 38:
+            // Key up.
+            if (tagIndex !== 0)
+                back();
+            break;
+        case 39:
+            // Key right.
+            break;
+        case 40:
+            // Key down.
+            if (tagIndex + 5 !== tags.length)
+                next();
+            break;
     }
 });
