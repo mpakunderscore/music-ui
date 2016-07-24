@@ -114,6 +114,47 @@ function select(tag, id) {
 
 // fillTags();
 
+// mouse wheel
+
+var position = 0;
+var positionIndex = 0;
+
+var positionInterval = 20;
+
+document.addEventListener('mousewheel', function(e) {
+
+    // console.log(e.deltaY)
+
+    if (e.deltaY > 20)
+        e.deltaY = 20;
+
+    if (e.deltaY < -20)
+        e.deltaY = -20;
+
+    position += e.deltaY;
+
+    // if (position < 0) {
+    //     position = 0;
+    //     return;
+    // }
+
+    // console.log('Position: ' + position)
+
+    if (Math.floor(position / positionInterval) > positionIndex  && tagIndex + 5 !== tags.length) {
+        positionIndex = Math.floor(position / positionInterval);
+        // console.log('next');
+        next();
+    }
+
+    if (Math.floor(position / positionInterval) < positionIndex && tagIndex !== 0) {
+        positionIndex = Math.floor(position / positionInterval);
+        // console.log('back');
+        back();
+    }
+});
+
+// arrays
+
 Array.prototype.remove = function() {
     var what, a = arguments, L = a.length, ax;
     while (L && this.length) {

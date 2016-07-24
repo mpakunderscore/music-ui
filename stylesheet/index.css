@@ -2,6 +2,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     margin: 0;
+    padding: 0;
 
     height: 500px;
     -webkit-app-region: drag;
@@ -20,43 +21,30 @@ a:hover {
 }
 
 #playlist {
+    cursor: default;
+    /*display: flex;*/
+    /*justify-content: center;*/
+
+    z-index: 2;
+
     padding: 0;
     margin: 0;
 
     position: fixed;
-    /*top: 50px;*/
-    bottom: 15px;
+    top: calc(50% - 121px);
+    /*bottom: 15px;*/
     left: 20px;
 
-    /*background-color: green;*/
+    /*background-color: red;*/
 
-    /*overflow: hidden;*/
-
-    /*opacity: 0.5;*/
-
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.6);
 
     list-style-type: none;
-
-    vertical-align: bottom;
-
-    /*background: linear-gradient(transparent, white);*/
-    /*height: 415px;*/
-    /*display: table-cell;*/
-
-    /*display: inline-block;*/
     /*vertical-align: bottom;*/
-
-    /*vertical-align: bottom;*/
-    /*display: inline-block;*/
-
-
-    /*background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));*/
 }
 
 #playlist li {
     margin-top: 5px;
-    /*float:left;*/
 }
 
 #playlist li:hover {
@@ -94,4 +82,25 @@ a:hover {
 
 .tag.select {
     color: white;
+}
+
+#equalizer {
+    position: fixed;
+    bottom: -5px;
+    right: 0;
+
+    /*border-radius: 5px;*/
+    /*background-color: red;*/
+}
+
+.line {
+
+    /*position: relative;*/
+    /*border-left: solid white;*/
+    width: 1px;
+    margin-right: 1px;
+    /*height: 100px;*/
+
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.4);
 }
