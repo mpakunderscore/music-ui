@@ -32,8 +32,23 @@ function checkTrack(artistTitle, trackTitle, trackTags) {
 
         console.log(track.artist + ' - ' + track.title);
 
-        if (playlist.length < visiblePlaylist)
-            $('#playlist').prepend('<li onclick="selectTrack(track)">' + track.artist + ' - ' + track.title + '</li>'); //$("li").text()
+        if (playlist.length === visiblePlaylist) {
+            $('#playlist').prepend('<li onclick="up()">&#x2191;</li>'); //$("li").text()\
+        }
+
+        if (playlist.length === 1) {
+
+            // $('#playlist').prepend('<li onclick="down()">&#x2193;</li>');
+            $('#playlist').prepend('<li class="select" onclick="selectTrack(\'' + track.artist + '\', \'' + track.title +  '\')">' + track.artist + ' - ' + track.title + '</li>');
+
+        } else if (playlist.length === 5) {
+
+            $('#playlist').prepend('<li onclick="selectTrack(\'' + track.artist + '\', \'' + track.title +  '\')">' + track.artist + ' - ' + track.title + '</li>');
+
+        } else if (playlist.length < visiblePlaylist) {
+
+            $('#playlist').prepend('<li onclick="selectTrack(\'' + track.artist + '\', \'' + track.title +  '\')">' + track.artist + ' - ' + track.title + '</li>');
+        }
 
         // style="opacity: ' + (1  - playlist.length/visiblePlaylist) + '"
     
@@ -43,8 +58,8 @@ function checkTrack(artistTitle, trackTitle, trackTags) {
     }
 }
 
-function selectTrack(track) {
-    console.log(track)
+function selectTrack(artist, title) {
+    console.log(artist + " - " + title)
 }
 
 // function filterTracks() {

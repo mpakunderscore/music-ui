@@ -55,9 +55,9 @@ function music() {
     if (audio.paused) {
 
         // console.log('/play')
-        playlist = [];
+        
         getTracks();
-        // audio.play();
+        audio.play();
 
     } else {
         audio.pause();

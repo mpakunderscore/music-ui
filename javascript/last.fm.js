@@ -51,6 +51,7 @@ if (localStorage.getItem(getTopTags_) === null) {
 
 function getTracks() {
 
+    playlist = [];
     $('#playlist').text('');
 
     for (var i = 0; i < selectedTags.length; i++) {
