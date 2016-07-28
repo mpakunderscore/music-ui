@@ -32,56 +32,35 @@ function checkTrack(artistTitle, trackTitle, trackTags) {
 
         // console.log(track.artist + ' - ' + track.title);
 
-        if (playlist.length === visiblePlaylist) {
-            $('#playlist').prepend('<li onclick="up()">&#x2191;</li>'); //$("li").text()\
-        }
+        var item = $('#playlist' + (playlist.length - 1));
 
-        if (playlist.length === 1) {
+        item.text(track.artist + ' - ' + track.title);
+        item.click(function() {
+            getYoutubeTrack(track)
+        });
 
-            download(track)
-
-            // $('#playlist').prepend('<li onclick="down()">&#x2193;</li>');
-            $('#playlist').prepend('<li class="select" onclick="selectTrack(\'' + track.artist + '\', \'' + track.title +  '\')">' + track.artist + ' - ' + track.title + '</li>');
-
-        } else if (playlist.length === 5) {
-
-            $('#playlist').prepend('<li onclick="selectTrack(\'' + track.artist + '\', \'' + track.title +  '\')">' + track.artist + ' - ' + track.title + '</li>');
-
-        } else if (playlist.length < visiblePlaylist) {
-
-            $('#playlist').prepend('<li onclick="selectTrack(\'' + track.artist + '\', \'' + track.title +  '\')">' + track.artist + ' - ' + track.title + '</li>');
-        }
-
-        // style="opacity: ' + (1  - playlist.length/visiblePlaylist) + '"
-    
-        for (var i = 0; i < playlistTrackTags.length; i++) {
-            // console.log('%c' + playlistTrackTags[i].title + ': ' + playlistTrackTags[i].count, 'color: blue');
-        }
+        if (playlist.length === 1)
+            getYoutubeTrack(track)
     }
 }
 
-function selectTrack(artist, title) {
-    console.log(artist + " - " + title)
+function selectTrack(track) {
+    console.log(track)
 }
 
-// function filterTracks() {
-//
-//     for (var i = 0; i < selectedTags.length; i++) {
-//
-//         var tag = selectedTags[i];
-//
-//         for (var id in tagTracks[tag]) {
-//
-//             // console.log(track)
-//
-//             var artist = 'artist=' + tagTracks[tag][id].artist + '&';
-//             var title = 'track=' + tagTracks[tag][id].title +'&';
-//
-//             // console.log(getTrackTopTags_ + artist + title)
-//
-//             var tags = JSON.parse(localStorage.getItem(getTrackTopTags_ + artist + title));
-//
-//             //check selected tags here
-//         }
-//     }
-// }
+function skip() {
+
+}
+
+function fillPlaylist() {
+
+    $('#playlist').prepend('<li id="playlist0" class="select"></li>');
+
+    for (var i = 1; i < visiblePlaylist; i++) {
+        $('#playlist').prepend('<li id="playlist' + i + '"></li>');
+    }
+
+    $('#playlist').prepend('<li onclick="up()">&#x2191;</li>');
+}
+
+fillPlaylist();

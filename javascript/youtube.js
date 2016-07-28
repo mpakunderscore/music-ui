@@ -4,7 +4,7 @@ var request = require('request');
 
 var format = '.mp4';
 
-function download(track) {
+function getYoutubeTrack(track) {
 
     // console.log('/download link')
 
@@ -54,6 +54,8 @@ function downloadMP4(track, link) {
 
         audio.src = 'files/mp4/' + name + format;
         audio.play();
+
+        $('video').attr('src', 'files/mp4/' + name + format);
 
         console.log('Finished downloading!');
     });

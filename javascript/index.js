@@ -30,12 +30,23 @@ function renderFrame() {
 
     // $('#equalizer').text('');
 
-    for (var i = 0; i < frequencyDataLength; i++)
-        $('#equalizer #line' + i).css('height', frequencyData[i]/1.5);
+    // for (var i = 0; i < frequencyDataLength; i++)
+    //     $('#equalizer #line' + i).css('height', frequencyData[i]/1.5);
 
     // $('#sector').css("transform", "rotate(" + 0 + 360 * frequencyData[first]/max + "deg)");
 
     requestAnimationFrame(renderFrame);
+}
+
+function showVideo() {
+
+    console.log('/show video')
+
+    if ($('video').css('display') === 'none' ) {
+        $('video').css('display', 'inline');
+    } else {
+        $('video').css('display', 'none');
+    }
 }
 
 audio.pause();
