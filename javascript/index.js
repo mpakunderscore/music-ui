@@ -1,12 +1,6 @@
-// var musicFile = 'mp3/' + 'Fabrizio Paterlini - L\'airone'  + '.mp3';
-var musicFile = 'mp3/' + 'Solar Fields - Discovering'  + '.mp3';
-// var musicFile = 'mp3/' + 'Rock Guitar Solo'  + '.mp3';
-// var musicFile = 'mp3/' + '27'  + '.mp3';
-
-var frequencyDataLength = 256;
+var frequencyDataLength = 128;
 
 var audio = new Audio();
-audio.src = musicFile;
 
 audioCtx = new AudioContext();
 analyser = audioCtx.createAnalyser();
@@ -57,7 +51,7 @@ function music() {
         // console.log('/play')
         
         getTracks();
-        audio.play();
+        // audio.play();
 
     } else {
         audio.pause();
