@@ -1,11 +1,11 @@
 body {
-    background: linear-gradient(90deg, #ee53fa, #ffbe44, #4fb825, #17cdf2, #1794f2);
-    background-size: 1000% 100%;
-    animation: background-animation-v1 50s ease infinite;
+    /*background: linear-gradient(90deg, #ee53fa, #ffbe44, #4fb825, #17cdf2, #1794f2);*/
+    /*background-size: 1000% 100%;*/
+    /*animation: background-animation-v1 50s ease infinite;*/
 
     /*animation: background-animation-v2 50s ease infinite;*/
 
-    /*background-color: #02b7ff;*/
+    background-color: #02b7ff;
 
     /*background-color:  black;*/
 }

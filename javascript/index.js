@@ -44,8 +44,17 @@ function showVideo() {
 
     if ($('video').css('display') === 'none' ) {
         $('video').css('display', 'inline');
+        $('#playlist').css('display', 'none');
+        $('#tags').css('display', 'none');
+        $('.circle').css('display', 'none');
+        $('body').css('background-color', 'green');
+
     } else {
         $('video').css('display', 'none');
+        $('#playlist').css('display', 'inline');
+        $('#tags').css('display', 'inline');
+        $('.circle').css('display', 'inline');
+        $('body').css('background-color', '#02b7ff');
     }
 }
 
