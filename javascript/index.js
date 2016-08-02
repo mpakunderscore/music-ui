@@ -47,7 +47,7 @@ function showVideo() {
         $('#playlist').css('display', 'none');
         $('#tags').css('display', 'none');
         $('.circle').css('display', 'none');
-        $('body').css('background-color', 'green');
+        $('body').css('background-color', '#26e826');
 
     } else {
         $('video').css('display', 'none');
